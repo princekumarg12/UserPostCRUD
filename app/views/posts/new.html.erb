@@ -1,0 +1,22 @@
+<div class="container w-50">
+<h4>New post</h4>
+<%= form_for [@user,@post] do |form| %>
+  <div>
+    <%= form.label :title,class:'form-label' %>
+    <%= form.text_field :title,class:'form-control' %>
+    <% @post.errors.full_messages_for(:title).each do |message| %>
+      <div class="text-danger"><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :content,class:'form-label' %>
+    <%= form.text_area :content,class:'form-control' %>
+    <% @post.errors.full_messages_for(:content).each do |message| %>
+      <div class="text-danger"><%= message %></div>
+    <% end %>
+  </div>
+
+  <%= form.submit class:'btn btn-outline-success' %>
+
+<% end %>
+</div>

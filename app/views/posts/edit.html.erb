@@ -1,0 +1,16 @@
+<div class="container w-50">
+<h4>Edit post</h4>
+<%= form_for [@user,@post] do |form| %>
+  <div>
+    <%= form.label :title,class:'form-label' %>
+    <%= form.text_field :title,class:'form-control' %>
+  </div>
+  <div>
+    <%= form.label :content,class:'form-label' %>
+    <%= form.text_area :content,class:'form-control' %>
+  </div>
+
+  <%= form.submit class:'btn btn-outline-success' %>
+
+<% end %>
+</div>
