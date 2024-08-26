@@ -17,6 +17,13 @@
           <%= form.text_area :content, class: 'form-control' %>
         </div>
 
+        <!--         Image Field-->
+        <div class="field mb-3">
+          <%= form.label :image, class: 'form-label'%>
+          <%= form.file_field :image, class: 'form-control' %>
+        </div>
+
+
         <!-- Submit Button -->
         <div class="d-grid">
           <%= form.submit 'Update Post', class: 'btn btn-outline-success' %>
