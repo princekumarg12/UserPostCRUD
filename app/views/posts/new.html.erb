@@ -1,22 +1,35 @@
-<div class="container w-50">
-<h4>New post</h4>
-<%= form_for [@user,@post] do |form| %>
-  <div>
-    <%= form.label :title,class:'form-label' %>
-    <%= form.text_field :title,class:'form-control' %>
-    <% @post.errors.full_messages_for(:title).each do |message| %>
-      <div class="text-danger"><%= message %></div>
-    <% end %>
-  </div>
-  <div>
-    <%= form.label :content,class:'form-label' %>
-    <%= form.text_area :content,class:'form-control' %>
-    <% @post.errors.full_messages_for(:content).each do |message| %>
-      <div class="text-danger"><%= message %></div>
-    <% end %>
-  </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-10">
+      <h4 class="text-center my-4">New Post</h4>
 
-  <%= form.submit class:'btn btn-outline-success' %>
+      <%= form_for [@user, @post] do |form| %>
 
-<% end %>
+        <!-- Title Field -->
+        <div class="mb-3">
+          <%= form.label :title, class: 'form-label' %>
+          <%= form.text_field :title, class: 'form-control' %>
+          <% @post.errors.full_messages_for(:title).each do |message| %>
+            <div class="text-danger"><%= message %></div>
+          <% end %>
+        </div>
+
+        <!-- Content Field -->
+        <div class="mb-3">
+          <%= form.label :content, class: 'form-label' %>
+          <%= form.text_area :content, class: 'form-control' %>
+          <% @post.errors.full_messages_for(:content).each do |message| %>
+            <div class="text-danger"><%= message %></div>
+          <% end %>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-grid">
+          <%= form.submit class: 'btn btn-outline-success' %>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
 </div>
