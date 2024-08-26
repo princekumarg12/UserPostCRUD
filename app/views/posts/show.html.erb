@@ -21,8 +21,7 @@
           <td><%= @post.content %></td>
         </tr>
       </table>
-      <%#= image_tag @post.image if @post.image.attached? %>
-      <%= image_tag @post.image, class: 'resized-image' if @post.image.present? %>
+      <%= image_tag @post.image.variant(resize_to_limit: [300,300]) if @post.image.present? %>
 
     </div>
   </div>
