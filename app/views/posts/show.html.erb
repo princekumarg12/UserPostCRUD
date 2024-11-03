@@ -21,8 +21,26 @@
           <td><%= @post.content %></td>
         </tr>
       </table>
-      <%= image_tag @post.image.variant(resize_to_limit: [300,300]) if @post.image.present? %>
+      <%= image_tag @post.image.variant(resize_to_limit: [300, 300]) if @post.image.present? %>
 
+    </div>
+    <div class="col-lg-8 col-md-10 col-sm-12 pt-2">
+      <h6>Comments for <%= @post.title %></h6>
+      <% if @comments.exists? %>
+        <ul>
+          <% @comments.each do |comment| %>
+            <li>
+              <strong><%= comment.user.first_name %>:</strong>
+              <p><%= comment.comment_box %></p>
+              <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
+              <%= link_to 'Delete', post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>No comments yet</p>
+      <% end %>
+      <%= link_to 'New Comment', new_post_comment_path(@post) %>
     </div>
   </div>
 </div>
